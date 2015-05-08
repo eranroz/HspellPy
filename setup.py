@@ -7,6 +7,7 @@ try:
 except ImportError:
     use_cython = False
 
+cmdclass = {}
 if use_cython:
     ext_modules = [Extension("HspellPy",
                          ["pyhspell.pyx"],
@@ -15,6 +16,7 @@ if use_cython:
                          include_dirs=['/usr/local/include'],
                          extra_objects=['/usr/local/lib/libhspell.a'],
                          )]
+    cmdclass = {'build_ext': build_ext}
 else:
     ext_modules = [Extension("HspellPy",
                          ["pyhspell.c"],
@@ -25,9 +27,11 @@ else:
                          )]
 
 setup(name='HspellPy',
-      cmdclass={'build_ext': build_ext},
+      cmdclass=cmdclass,
       ext_modules=ext_modules,
       author='Eranroz',
+      author_email='eranroz@cs.huji.ac.il',
       url='https://github.com/eranroz/HspellPy',
-      description='Python wrapper for Hspell'
+      description='Python wrapper for Hspell',
+      version='0.1'
       )

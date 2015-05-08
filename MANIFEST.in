@@ -1,0 +1,3 @@
+include pyhspell.c
+include setup.py
+include pyhspell.pyx
