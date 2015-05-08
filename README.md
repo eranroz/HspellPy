@@ -20,6 +20,11 @@ Hspell was written by Nadav Har'El and Dan Kenigsberg:
   4. Install: make install
 2. python setup.py install
 
+You can install HspellPy using pip:
+```
+pip install HspellPy
+```
+
 # Usage
 Usage example (python 3)
 ```python
