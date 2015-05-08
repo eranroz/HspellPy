@@ -27,5 +27,7 @@ else:
 setup(name='HspellPy',
       cmdclass={'build_ext': build_ext},
       ext_modules=ext_modules,
-      author='Eranroz'
+      author='Eranroz',
+      url='https://github.com/eranroz/HspellPy',
+      description='Python wrapper for Hspell'
       )

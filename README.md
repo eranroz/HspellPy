@@ -7,8 +7,10 @@ You can get Hspell from:
 	http://hspell.ivrix.org.il/
 
 Hspell was written by Nadav Har'El and Dan Kenigsberg:
+```
 	nyh    @ math.technion.ac.il
 	danken @   cs.technion.ac.il
+```
 
 # Install
 1. Get Hspell: 
@@ -33,11 +35,11 @@ False
 >>> 'בית' in speller                # syntactic sugar
 True
 >>> speller.try_correct('עדג')      # corrections (doesn't correct typo. see Hspell doc)
->['הדג', 'עדה']
+['הדג', 'עדה']
 >>> speller.enum_splits('וילדותיה')   # list all splits of a word
 >[WordEnumSplit(word='וילדותיה', baseword='ילדותיה', preflen=1, prefspec=60)]
 >>> speller.linginfo('ילדה')        # morphology
->[LinginfoWord(word='ילדה', linginfo='פ,נ,3,יחיד,עבר'), 
+[LinginfoWord(word='ילדה', linginfo='פ,נ,3,יחיד,עבר'), 
   LinginfoWord(word='ילדה', linginfo='ע,נ,יחיד'),
   LinginfoWord(word='ילדה', linginfo='ע,ז,יחיד,כינוי/נ,3,יחיד')]
 ```
