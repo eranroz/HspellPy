@@ -765,12 +765,16 @@ static PyObject *__pyx_codeobj__10;
  *     cdef dict_radix* hspell_dict
  * 
  *     def __init__(self, allow_he_sheela=False, linguistics=False):             # <<<<<<<<<<<<<<
- *         cdef int flags
- *         cdef int init_err
+ *         """
+ *         Initializes a new spell checker object
  */
 
 /* Python wrapper */
 static int __pyx_pw_8HspellPy_6Hspell_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_8HspellPy_6Hspell___init__[] = "\n        Initializes a new spell checker object\n        :param allow_he_sheela:  allows he_sheela\n        :param linguistics: allow linguistic data\n        ";
+#if CYTHON_COMPILING_IN_CPYTHON
+struct wrapperbase __pyx_wrapperbase_8HspellPy_6Hspell___init__;
+#endif
 static int __pyx_pw_8HspellPy_6Hspell_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_allow_he_sheela = 0;
   PyObject *__pyx_v_linguistics = 0;
@@ -849,7 +853,7 @@ static int __pyx_pf_8HspellPy_6Hspell___init__(struct __pyx_obj_8HspellPy_Hspell
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "pyhspell.pyx":40
+  /* "pyhspell.pyx":45
  *         cdef int flags
  *         cdef int init_err
  *         flags = HSPELL_OPT_DEFAULT             # <<<<<<<<<<<<<<
@@ -858,17 +862,17 @@ static int __pyx_pf_8HspellPy_6Hspell___init__(struct __pyx_obj_8HspellPy_Hspell
  */
   __pyx_v_flags = HSPELL_OPT_DEFAULT;
 
-  /* "pyhspell.pyx":41
+  /* "pyhspell.pyx":46
  *         cdef int init_err
  *         flags = HSPELL_OPT_DEFAULT
  *         if allow_he_sheela:             # <<<<<<<<<<<<<<
  *             flags |= HSPELL_OPT_HE_SHEELA
  *         if linguistics:
  */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_allow_he_sheela); if (unlikely(__pyx_t_1 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 41; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_allow_he_sheela); if (unlikely(__pyx_t_1 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 46; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   if (__pyx_t_1) {
 
-    /* "pyhspell.pyx":42
+    /* "pyhspell.pyx":47
  *         flags = HSPELL_OPT_DEFAULT
  *         if allow_he_sheela:
  *             flags |= HSPELL_OPT_HE_SHEELA             # <<<<<<<<<<<<<<
@@ -880,17 +884,17 @@ static int __pyx_pf_8HspellPy_6Hspell___init__(struct __pyx_obj_8HspellPy_Hspell
   }
   __pyx_L3:;
 
-  /* "pyhspell.pyx":43
+  /* "pyhspell.pyx":48
  *         if allow_he_sheela:
  *             flags |= HSPELL_OPT_HE_SHEELA
  *         if linguistics:             # <<<<<<<<<<<<<<
  *             flags |= HSPELL_OPT_LINGUISTICS
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_linguistics); if (unlikely(__pyx_t_1 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 43; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_linguistics); if (unlikely(__pyx_t_1 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 48; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   if (__pyx_t_1) {
 
-    /* "pyhspell.pyx":44
+    /* "pyhspell.pyx":49
  *             flags |= HSPELL_OPT_HE_SHEELA
  *         if linguistics:
  *             flags |= HSPELL_OPT_LINGUISTICS             # <<<<<<<<<<<<<<
@@ -902,7 +906,7 @@ static int __pyx_pf_8HspellPy_6Hspell___init__(struct __pyx_obj_8HspellPy_Hspell
   }
   __pyx_L4:;
 
-  /* "pyhspell.pyx":46
+  /* "pyhspell.pyx":51
  *             flags |= HSPELL_OPT_LINGUISTICS
  * 
  *         init_err = hspell_init(&self.hspell_dict, flags)             # <<<<<<<<<<<<<<
@@ -911,7 +915,7 @@ static int __pyx_pf_8HspellPy_6Hspell___init__(struct __pyx_obj_8HspellPy_Hspell
  */
   __pyx_v_init_err = hspell_init((&__pyx_v_self->hspell_dict), __pyx_v_flags);
 
-  /* "pyhspell.pyx":47
+  /* "pyhspell.pyx":52
  * 
  *         init_err = hspell_init(&self.hspell_dict, flags)
  *         if init_err == -1:             # <<<<<<<<<<<<<<
@@ -921,21 +925,21 @@ static int __pyx_pf_8HspellPy_6Hspell___init__(struct __pyx_obj_8HspellPy_Hspell
   __pyx_t_1 = ((__pyx_v_init_err == -1) != 0);
   if (__pyx_t_1) {
 
-    /* "pyhspell.pyx":48
+    /* "pyhspell.pyx":53
  *         init_err = hspell_init(&self.hspell_dict, flags)
  *         if init_err == -1:
  *             raise Exception('the dictionary files could not be read.')             # <<<<<<<<<<<<<<
  *         elif init_err < 0:
  *             raise Exception('Error init hspell %i' % init_err)
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_Exception, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 48; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_Exception, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 53; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 48; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 53; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
 
-  /* "pyhspell.pyx":49
+  /* "pyhspell.pyx":54
  *         if init_err == -1:
  *             raise Exception('the dictionary files could not be read.')
  *         elif init_err < 0:             # <<<<<<<<<<<<<<
@@ -945,37 +949,37 @@ static int __pyx_pf_8HspellPy_6Hspell___init__(struct __pyx_obj_8HspellPy_Hspell
   __pyx_t_1 = ((__pyx_v_init_err < 0) != 0);
   if (__pyx_t_1) {
 
-    /* "pyhspell.pyx":50
+    /* "pyhspell.pyx":55
  *             raise Exception('the dictionary files could not be read.')
  *         elif init_err < 0:
  *             raise Exception('Error init hspell %i' % init_err)             # <<<<<<<<<<<<<<
  * 
  *     cdef __del__(self):
  */
-    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_init_err); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 50; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_init_err); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 55; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyString_Format(__pyx_kp_s_Error_init_hspell_i, __pyx_t_2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 50; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyString_Format(__pyx_kp_s_Error_init_hspell_i, __pyx_t_2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 55; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 50; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 55; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3);
     __Pyx_GIVEREF(__pyx_t_3);
     __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_Exception, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 50; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_Exception, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 55; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 50; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 55; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
 
   /* "pyhspell.pyx":37
  *     cdef dict_radix* hspell_dict
  * 
  *     def __init__(self, allow_he_sheela=False, linguistics=False):             # <<<<<<<<<<<<<<
- *         cdef int flags
- *         cdef int init_err
+ *         """
+ *         Initializes a new spell checker object
  */
 
   /* function exit code */
@@ -991,7 +995,7 @@ static int __pyx_pf_8HspellPy_6Hspell___init__(struct __pyx_obj_8HspellPy_Hspell
   return __pyx_r;
 }
 
-/* "pyhspell.pyx":52
+/* "pyhspell.pyx":57
  *             raise Exception('Error init hspell %i' % init_err)
  * 
  *     cdef __del__(self):             # <<<<<<<<<<<<<<
@@ -1004,7 +1008,7 @@ static PyObject *__pyx_f_8HspellPy_6Hspell___del__(struct __pyx_obj_8HspellPy_Hs
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
 
-  /* "pyhspell.pyx":53
+  /* "pyhspell.pyx":58
  * 
  *     cdef __del__(self):
  *         hspell_uninit(self.hspell_dict)             # <<<<<<<<<<<<<<
@@ -1013,7 +1017,7 @@ static PyObject *__pyx_f_8HspellPy_6Hspell___del__(struct __pyx_obj_8HspellPy_Hs
  */
   hspell_uninit(__pyx_v_self->hspell_dict);
 
-  /* "pyhspell.pyx":52
+  /* "pyhspell.pyx":57
  *             raise Exception('Error init hspell %i' % init_err)
  * 
  *     cdef __del__(self):             # <<<<<<<<<<<<<<
@@ -1028,7 +1032,7 @@ static PyObject *__pyx_f_8HspellPy_6Hspell___del__(struct __pyx_obj_8HspellPy_Hs
   return __pyx_r;
 }
 
-/* "pyhspell.pyx":55
+/* "pyhspell.pyx":60
  *         hspell_uninit(self.hspell_dict)
  * 
  *     def check_word(self, word):             # <<<<<<<<<<<<<<
@@ -1059,7 +1063,7 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_2check_word(struct __pyx_obj_8Hspell
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("check_word", 0);
 
-  /* "pyhspell.pyx":62
+  /* "pyhspell.pyx":67
  *         :return: whether the word exist in dictionary
  *         """
  *         return self._check_word(word)             # <<<<<<<<<<<<<<
@@ -1067,13 +1071,13 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_2check_word(struct __pyx_obj_8Hspell
  *     def __contains__(self, word):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((struct __pyx_vtabstruct_8HspellPy_Hspell *)__pyx_v_self->__pyx_vtab)->_check_word(__pyx_v_self, __pyx_v_word); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_8HspellPy_Hspell *)__pyx_v_self->__pyx_vtab)->_check_word(__pyx_v_self, __pyx_v_word); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyhspell.pyx":55
+  /* "pyhspell.pyx":60
  *         hspell_uninit(self.hspell_dict)
  * 
  *     def check_word(self, word):             # <<<<<<<<<<<<<<
@@ -1092,7 +1096,7 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_2check_word(struct __pyx_obj_8Hspell
   return __pyx_r;
 }
 
-/* "pyhspell.pyx":64
+/* "pyhspell.pyx":69
  *         return self._check_word(word)
  * 
  *     def __contains__(self, word):             # <<<<<<<<<<<<<<
@@ -1130,14 +1134,14 @@ static int __pyx_pf_8HspellPy_6Hspell_4__contains__(struct __pyx_obj_8HspellPy_H
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__contains__", 0);
 
-  /* "pyhspell.pyx":73
+  /* "pyhspell.pyx":78
  *         :return: whether the word exist in dictionary
  *         """
  *         return self.check_word(word)             # <<<<<<<<<<<<<<
  * 
  *     cdef _check_word(self, word):
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_check_word); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_check_word); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -1150,26 +1154,26 @@ static int __pyx_pf_8HspellPy_6Hspell_4__contains__(struct __pyx_obj_8HspellPy_H
     }
   }
   if (!__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_word); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_word); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3); __Pyx_GIVEREF(__pyx_t_3); __pyx_t_3 = NULL;
     __Pyx_INCREF(__pyx_v_word);
     PyTuple_SET_ITEM(__pyx_t_4, 0+1, __pyx_v_word);
     __Pyx_GIVEREF(__pyx_v_word);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_5;
   goto __pyx_L0;
 
-  /* "pyhspell.pyx":64
+  /* "pyhspell.pyx":69
  *         return self._check_word(word)
  * 
  *     def __contains__(self, word):             # <<<<<<<<<<<<<<
@@ -1190,7 +1194,7 @@ static int __pyx_pf_8HspellPy_6Hspell_4__contains__(struct __pyx_obj_8HspellPy_H
   return __pyx_r;
 }
 
-/* "pyhspell.pyx":75
+/* "pyhspell.pyx":80
  *         return self.check_word(word)
  * 
  *     cdef _check_word(self, word):             # <<<<<<<<<<<<<<
@@ -1214,32 +1218,32 @@ static PyObject *__pyx_f_8HspellPy_6Hspell__check_word(struct __pyx_obj_8HspellP
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_check_word", 0);
 
-  /* "pyhspell.pyx":87
+  /* "pyhspell.pyx":92
  * 
  *         #note: niqqud  characters, geresh or gershayim, must be removed from the word prior
  *         py_byte_string  = word.encode('iso8859-8')             # <<<<<<<<<<<<<<
  *         word_to_check = py_byte_string
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_word, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 87; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_word, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 92; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 87; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 92; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_py_byte_string = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyhspell.pyx":88
+  /* "pyhspell.pyx":93
  *         #note: niqqud  characters, geresh or gershayim, must be removed from the word prior
  *         py_byte_string  = word.encode('iso8859-8')
  *         word_to_check = py_byte_string             # <<<<<<<<<<<<<<
  * 
  *         # preflen - the number of characters recognized as a prefix particle may be removed in future
  */
-  __pyx_t_3 = __Pyx_PyObject_AsString(__pyx_v_py_byte_string); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 88; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_AsString(__pyx_v_py_byte_string); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 93; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_v_word_to_check = __pyx_t_3;
 
-  /* "pyhspell.pyx":91
+  /* "pyhspell.pyx":96
  * 
  *         # preflen - the number of characters recognized as a prefix particle may be removed in future
  *         res = hspell_check_word(self.hspell_dict, word_to_check, &preflen)             # <<<<<<<<<<<<<<
@@ -1248,7 +1252,7 @@ static PyObject *__pyx_f_8HspellPy_6Hspell__check_word(struct __pyx_obj_8HspellP
  */
   __pyx_v_res = hspell_check_word(__pyx_v_self->hspell_dict, __pyx_v_word_to_check, (&__pyx_v_preflen));
 
-  /* "pyhspell.pyx":92
+  /* "pyhspell.pyx":97
  *         # preflen - the number of characters recognized as a prefix particle may be removed in future
  *         res = hspell_check_word(self.hspell_dict, word_to_check, &preflen)
  *         if res == 1:             # <<<<<<<<<<<<<<
@@ -1258,7 +1262,7 @@ static PyObject *__pyx_f_8HspellPy_6Hspell__check_word(struct __pyx_obj_8HspellP
   __pyx_t_4 = ((__pyx_v_res == 1) != 0);
   if (__pyx_t_4) {
 
-    /* "pyhspell.pyx":94
+    /* "pyhspell.pyx":99
  *         if res == 1:
  *             # word is correct
  *             return True             # <<<<<<<<<<<<<<
@@ -1271,7 +1275,7 @@ static PyObject *__pyx_f_8HspellPy_6Hspell__check_word(struct __pyx_obj_8HspellP
     goto __pyx_L0;
   }
 
-  /* "pyhspell.pyx":96
+  /* "pyhspell.pyx":101
  *             return True
  * 
  *         return False             # <<<<<<<<<<<<<<
@@ -1283,7 +1287,7 @@ static PyObject *__pyx_f_8HspellPy_6Hspell__check_word(struct __pyx_obj_8HspellP
   __pyx_r = Py_False;
   goto __pyx_L0;
 
-  /* "pyhspell.pyx":75
+  /* "pyhspell.pyx":80
  *         return self.check_word(word)
  * 
  *     cdef _check_word(self, word):             # <<<<<<<<<<<<<<
@@ -1304,7 +1308,7 @@ static PyObject *__pyx_f_8HspellPy_6Hspell__check_word(struct __pyx_obj_8HspellP
   return __pyx_r;
 }
 
-/* "pyhspell.pyx":98
+/* "pyhspell.pyx":103
  *         return False
  * 
  *     def enum_splits(self, word):             # <<<<<<<<<<<<<<
@@ -1340,56 +1344,56 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_6enum_splits(struct __pyx_obj_8Hspel
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("enum_splits", 0);
 
-  /* "pyhspell.pyx":110
+  /* "pyhspell.pyx":115
  *         cdef int err_res
  * 
  *         py_byte_string  = word.encode('iso8859-8')             # <<<<<<<<<<<<<<
  * 
  *         err_res = hspell_enum_splits(self.hspell_dict, py_byte_string, _enum_splits_callback)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_word, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 110; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_word, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 115; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 110; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 115; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_py_byte_string = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyhspell.pyx":112
+  /* "pyhspell.pyx":117
  *         py_byte_string  = word.encode('iso8859-8')
  * 
  *         err_res = hspell_enum_splits(self.hspell_dict, py_byte_string, _enum_splits_callback)             # <<<<<<<<<<<<<<
  *         res_list = __enum_splits_res
  *         __enum_splits_res = []
  */
-  __pyx_t_3 = __Pyx_PyObject_AsString(__pyx_v_py_byte_string); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_AsString(__pyx_v_py_byte_string); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 117; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_v_err_res = hspell_enum_splits(__pyx_v_self->hspell_dict, __pyx_t_3, __pyx_f_8HspellPy__enum_splits_callback);
 
-  /* "pyhspell.pyx":113
+  /* "pyhspell.pyx":118
  * 
  *         err_res = hspell_enum_splits(self.hspell_dict, py_byte_string, _enum_splits_callback)
  *         res_list = __enum_splits_res             # <<<<<<<<<<<<<<
  *         __enum_splits_res = []
  *         return res_list
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_enum_splits_res); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 113; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_enum_splits_res); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_res_list = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyhspell.pyx":114
+  /* "pyhspell.pyx":119
  *         err_res = hspell_enum_splits(self.hspell_dict, py_byte_string, _enum_splits_callback)
  *         res_list = __enum_splits_res
  *         __enum_splits_res = []             # <<<<<<<<<<<<<<
  *         return res_list
  * 
  */
-  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_enum_splits_res, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_enum_splits_res, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyhspell.pyx":115
+  /* "pyhspell.pyx":120
  *         res_list = __enum_splits_res
  *         __enum_splits_res = []
  *         return res_list             # <<<<<<<<<<<<<<
@@ -1401,7 +1405,7 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_6enum_splits(struct __pyx_obj_8Hspel
   __pyx_r = __pyx_v_res_list;
   goto __pyx_L0;
 
-  /* "pyhspell.pyx":98
+  /* "pyhspell.pyx":103
  *         return False
  * 
  *     def enum_splits(self, word):             # <<<<<<<<<<<<<<
@@ -1423,7 +1427,7 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_6enum_splits(struct __pyx_obj_8Hspel
   return __pyx_r;
 }
 
-/* "pyhspell.pyx":117
+/* "pyhspell.pyx":122
  *         return res_list
  * 
  *     def try_correct(self, word):             # <<<<<<<<<<<<<<
@@ -1454,7 +1458,7 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_8try_correct(struct __pyx_obj_8Hspel
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("try_correct", 0);
 
-  /* "pyhspell.pyx":127
+  /* "pyhspell.pyx":132
  *         :return: correction list
  *         """
  *         return self._try_correct(word)             # <<<<<<<<<<<<<<
@@ -1462,13 +1466,13 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_8try_correct(struct __pyx_obj_8Hspel
  *     cdef _try_correct(self, word):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((struct __pyx_vtabstruct_8HspellPy_Hspell *)__pyx_v_self->__pyx_vtab)->_try_correct(__pyx_v_self, __pyx_v_word); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 127; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_8HspellPy_Hspell *)__pyx_v_self->__pyx_vtab)->_try_correct(__pyx_v_self, __pyx_v_word); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 132; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyhspell.pyx":117
+  /* "pyhspell.pyx":122
  *         return res_list
  * 
  *     def try_correct(self, word):             # <<<<<<<<<<<<<<
@@ -1487,7 +1491,7 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_8try_correct(struct __pyx_obj_8Hspel
   return __pyx_r;
 }
 
-/* "pyhspell.pyx":129
+/* "pyhspell.pyx":134
  *         return self._try_correct(word)
  * 
  *     cdef _try_correct(self, word):             # <<<<<<<<<<<<<<
@@ -1515,7 +1519,7 @@ static PyObject *__pyx_f_8HspellPy_6Hspell__try_correct(struct __pyx_obj_8Hspell
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_try_correct", 0);
 
-  /* "pyhspell.pyx":132
+  /* "pyhspell.pyx":137
  *         cdef corlist cl
  * 
  *         corlist_init (&cl)             # <<<<<<<<<<<<<<
@@ -1524,59 +1528,59 @@ static PyObject *__pyx_f_8HspellPy_6Hspell__try_correct(struct __pyx_obj_8Hspell
  */
   corlist_init((&__pyx_v_cl));
 
-  /* "pyhspell.pyx":133
+  /* "pyhspell.pyx":138
  * 
  *         corlist_init (&cl)
  *         py_byte_string  = word.encode('iso8859-8')             # <<<<<<<<<<<<<<
  *         corrections = []
  *         hspell_trycorrect(self.hspell_dict, py_byte_string, &cl)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_word, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 133; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_word, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 138; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 133; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 138; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_py_byte_string = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyhspell.pyx":134
+  /* "pyhspell.pyx":139
  *         corlist_init (&cl)
  *         py_byte_string  = word.encode('iso8859-8')
  *         corrections = []             # <<<<<<<<<<<<<<
  *         hspell_trycorrect(self.hspell_dict, py_byte_string, &cl)
  *         print('%i'%corlist_n(&cl))
  */
-  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 134; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 139; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_corrections = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyhspell.pyx":135
+  /* "pyhspell.pyx":140
  *         py_byte_string  = word.encode('iso8859-8')
  *         corrections = []
  *         hspell_trycorrect(self.hspell_dict, py_byte_string, &cl)             # <<<<<<<<<<<<<<
  *         print('%i'%corlist_n(&cl))
  *         for i in range(corlist_n(&cl)):
  */
-  __pyx_t_3 = __Pyx_PyObject_AsString(__pyx_v_py_byte_string); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 135; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_AsString(__pyx_v_py_byte_string); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 140; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   hspell_trycorrect(__pyx_v_self->hspell_dict, __pyx_t_3, (&__pyx_v_cl));
 
-  /* "pyhspell.pyx":136
+  /* "pyhspell.pyx":141
  *         corrections = []
  *         hspell_trycorrect(self.hspell_dict, py_byte_string, &cl)
  *         print('%i'%corlist_n(&cl))             # <<<<<<<<<<<<<<
  *         for i in range(corlist_n(&cl)):
  *             correct = <bytes>corlist_str(&cl, i).decode('iso8859-8')
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(corlist_n((&__pyx_v_cl))); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 136; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_From_int(corlist_n((&__pyx_v_cl))); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 141; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyString_Format(__pyx_kp_s_i, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 136; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyString_Format(__pyx_kp_s_i, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 141; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_PrintOne(0, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 136; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_PrintOne(0, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 141; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyhspell.pyx":137
+  /* "pyhspell.pyx":142
  *         hspell_trycorrect(self.hspell_dict, py_byte_string, &cl)
  *         print('%i'%corlist_n(&cl))
  *         for i in range(corlist_n(&cl)):             # <<<<<<<<<<<<<<
@@ -1587,7 +1591,7 @@ static PyObject *__pyx_f_8HspellPy_6Hspell__try_correct(struct __pyx_obj_8Hspell
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_i = __pyx_t_5;
 
-    /* "pyhspell.pyx":138
+    /* "pyhspell.pyx":143
  *         print('%i'%corlist_n(&cl))
  *         for i in range(corlist_n(&cl)):
  *             correct = <bytes>corlist_str(&cl, i).decode('iso8859-8')             # <<<<<<<<<<<<<<
@@ -1595,7 +1599,7 @@ static PyObject *__pyx_f_8HspellPy_6Hspell__try_correct(struct __pyx_obj_8Hspell
  *         corlist_free(&cl)
  */
     __pyx_t_6 = corlist_str((&__pyx_v_cl), __pyx_v_i);
-    __pyx_t_1 = __Pyx_decode_c_string(__pyx_t_6, 0, strlen(__pyx_t_6), __pyx_k_iso8859_8, NULL, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 138; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_decode_c_string(__pyx_t_6, 0, strlen(__pyx_t_6), __pyx_k_iso8859_8, NULL, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_2 = __pyx_t_1;
     __Pyx_INCREF(__pyx_t_2);
@@ -1603,17 +1607,17 @@ static PyObject *__pyx_f_8HspellPy_6Hspell__try_correct(struct __pyx_obj_8Hspell
     __Pyx_XDECREF_SET(__pyx_v_correct, ((PyObject*)__pyx_t_2));
     __pyx_t_2 = 0;
 
-    /* "pyhspell.pyx":139
+    /* "pyhspell.pyx":144
  *         for i in range(corlist_n(&cl)):
  *             correct = <bytes>corlist_str(&cl, i).decode('iso8859-8')
  *             corrections.append(correct)             # <<<<<<<<<<<<<<
  *         corlist_free(&cl)
  * 
  */
-    __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_corrections, __pyx_v_correct); if (unlikely(__pyx_t_7 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 139; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_corrections, __pyx_v_correct); if (unlikely(__pyx_t_7 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 144; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
 
-  /* "pyhspell.pyx":140
+  /* "pyhspell.pyx":145
  *             correct = <bytes>corlist_str(&cl, i).decode('iso8859-8')
  *             corrections.append(correct)
  *         corlist_free(&cl)             # <<<<<<<<<<<<<<
@@ -1622,7 +1626,7 @@ static PyObject *__pyx_f_8HspellPy_6Hspell__try_correct(struct __pyx_obj_8Hspell
  */
   corlist_free((&__pyx_v_cl));
 
-  /* "pyhspell.pyx":142
+  /* "pyhspell.pyx":147
  *         corlist_free(&cl)
  * 
  *         return corrections             # <<<<<<<<<<<<<<
@@ -1634,7 +1638,7 @@ static PyObject *__pyx_f_8HspellPy_6Hspell__try_correct(struct __pyx_obj_8Hspell
   __pyx_r = __pyx_v_corrections;
   goto __pyx_L0;
 
-  /* "pyhspell.pyx":129
+  /* "pyhspell.pyx":134
  *         return self._try_correct(word)
  * 
  *     cdef _try_correct(self, word):             # <<<<<<<<<<<<<<
@@ -1657,7 +1661,7 @@ static PyObject *__pyx_f_8HspellPy_6Hspell__try_correct(struct __pyx_obj_8Hspell
   return __pyx_r;
 }
 
-/* "pyhspell.pyx":144
+/* "pyhspell.pyx":149
  *         return corrections
  * 
  *     def linginfo(self, word):             # <<<<<<<<<<<<<<
@@ -1704,44 +1708,44 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_10linginfo(CYTHON_UNUSED struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("linginfo", 0);
 
-  /* "pyhspell.pyx":150
+  /* "pyhspell.pyx":155
  *         cdef char buf[80]
  * 
  *         py_byte_string  = word.encode('iso8859-8')             # <<<<<<<<<<<<<<
  *         found = linginfo_lookup(py_byte_string, &desc, &stem)
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_word, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_word, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_py_byte_string = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyhspell.pyx":151
+  /* "pyhspell.pyx":156
  * 
  *         py_byte_string  = word.encode('iso8859-8')
  *         found = linginfo_lookup(py_byte_string, &desc, &stem)             # <<<<<<<<<<<<<<
  * 
  *         res = []
  */
-  __pyx_t_3 = __Pyx_PyObject_AsString(__pyx_v_py_byte_string); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 151; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_AsString(__pyx_v_py_byte_string); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_v_found = linginfo_lookup(__pyx_t_3, (&__pyx_v_desc), (&__pyx_v_stem));
 
-  /* "pyhspell.pyx":153
+  /* "pyhspell.pyx":158
  *         found = linginfo_lookup(py_byte_string, &desc, &stem)
  * 
  *         res = []             # <<<<<<<<<<<<<<
  *         if found:
  *             j = 0
  */
-  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 158; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_res = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyhspell.pyx":154
+  /* "pyhspell.pyx":159
  * 
  *         res = []
  *         if found:             # <<<<<<<<<<<<<<
@@ -1751,7 +1755,7 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_10linginfo(CYTHON_UNUSED struct __py
   __pyx_t_4 = (__pyx_v_found != 0);
   if (__pyx_t_4) {
 
-    /* "pyhspell.pyx":155
+    /* "pyhspell.pyx":160
  *         res = []
  *         if found:
  *             j = 0             # <<<<<<<<<<<<<<
@@ -1761,7 +1765,7 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_10linginfo(CYTHON_UNUSED struct __py
     __Pyx_INCREF(__pyx_int_0);
     __pyx_v_j = __pyx_int_0;
 
-    /* "pyhspell.pyx":156
+    /* "pyhspell.pyx":161
  *         if found:
  *             j = 0
  *             while True:             # <<<<<<<<<<<<<<
@@ -1770,77 +1774,77 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_10linginfo(CYTHON_UNUSED struct __py
  */
     while (1) {
 
-      /* "pyhspell.pyx":157
+      /* "pyhspell.pyx":162
  *             j = 0
  *             while True:
  *                 if not linginfo_desc2text(buf, desc, j): break             # <<<<<<<<<<<<<<
  *                 if linginfo_desc2ps(desc, j):
  *                     ling_data = (<bytes>buf).decode('iso8859-8')
  */
-      __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_j); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 157; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_j); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 162; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __pyx_t_4 = ((!(linginfo_desc2text(__pyx_v_buf, __pyx_v_desc, __pyx_t_5) != 0)) != 0);
       if (__pyx_t_4) {
         goto __pyx_L5_break;
       }
 
-      /* "pyhspell.pyx":158
+      /* "pyhspell.pyx":163
  *             while True:
  *                 if not linginfo_desc2text(buf, desc, j): break
  *                 if linginfo_desc2ps(desc, j):             # <<<<<<<<<<<<<<
  *                     ling_data = (<bytes>buf).decode('iso8859-8')
  *                     word_mean = (<bytes>linginfo_stem2text(stem, j)).decode('iso8859-8')
  */
-      __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_j); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 158; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_j); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 163; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __pyx_t_4 = (linginfo_desc2ps(__pyx_v_desc, __pyx_t_5) != 0);
       if (__pyx_t_4) {
 
-        /* "pyhspell.pyx":159
+        /* "pyhspell.pyx":164
  *                 if not linginfo_desc2text(buf, desc, j): break
  *                 if linginfo_desc2ps(desc, j):
  *                     ling_data = (<bytes>buf).decode('iso8859-8')             # <<<<<<<<<<<<<<
  *                     word_mean = (<bytes>linginfo_stem2text(stem, j)).decode('iso8859-8')
  *                     res.append(LinginfoWord(word, ling_data))
  */
-        __pyx_t_2 = __Pyx_PyObject_FromString(__pyx_v_buf); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 159; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_FromString(__pyx_v_buf); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 164; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_2);
         if (unlikely(__pyx_t_2 == Py_None)) {
           PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%s'", "decode");
-          {__pyx_filename = __pyx_f[0]; __pyx_lineno = 159; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          {__pyx_filename = __pyx_f[0]; __pyx_lineno = 164; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         }
-        __pyx_t_1 = __Pyx_decode_bytes(((PyObject*)__pyx_t_2), 0, PY_SSIZE_T_MAX, __pyx_k_iso8859_8, NULL, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 159; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_1 = __Pyx_decode_bytes(((PyObject*)__pyx_t_2), 0, PY_SSIZE_T_MAX, __pyx_k_iso8859_8, NULL, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 164; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_XDECREF_SET(__pyx_v_ling_data, __pyx_t_1);
         __pyx_t_1 = 0;
 
-        /* "pyhspell.pyx":160
+        /* "pyhspell.pyx":165
  *                 if linginfo_desc2ps(desc, j):
  *                     ling_data = (<bytes>buf).decode('iso8859-8')
  *                     word_mean = (<bytes>linginfo_stem2text(stem, j)).decode('iso8859-8')             # <<<<<<<<<<<<<<
  *                     res.append(LinginfoWord(word, ling_data))
  *                 j += 1
  */
-        __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_j); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 160; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-        __pyx_t_1 = __Pyx_PyBytes_FromString(linginfo_stem2text(__pyx_v_stem, __pyx_t_5)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 160; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_j); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_1 = __Pyx_PyBytes_FromString(linginfo_stem2text(__pyx_v_stem, __pyx_t_5)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_1);
         if (unlikely(__pyx_t_1 == Py_None)) {
           PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%s'", "decode");
-          {__pyx_filename = __pyx_f[0]; __pyx_lineno = 160; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          {__pyx_filename = __pyx_f[0]; __pyx_lineno = 165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         }
-        __pyx_t_2 = __Pyx_decode_bytes(((PyObject*)__pyx_t_1), 0, PY_SSIZE_T_MAX, __pyx_k_iso8859_8, NULL, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 160; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_decode_bytes(((PyObject*)__pyx_t_1), 0, PY_SSIZE_T_MAX, __pyx_k_iso8859_8, NULL, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_XDECREF_SET(__pyx_v_word_mean, __pyx_t_2);
         __pyx_t_2 = 0;
 
-        /* "pyhspell.pyx":161
+        /* "pyhspell.pyx":166
  *                     ling_data = (<bytes>buf).decode('iso8859-8')
  *                     word_mean = (<bytes>linginfo_stem2text(stem, j)).decode('iso8859-8')
  *                     res.append(LinginfoWord(word, ling_data))             # <<<<<<<<<<<<<<
  *                 j += 1
  * 
  */
-        __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_LinginfoWord); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_LinginfoWord); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_1);
         __pyx_t_6 = NULL;
         __pyx_t_7 = 0;
@@ -1854,7 +1858,7 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_10linginfo(CYTHON_UNUSED struct __py
             __pyx_t_7 = 1;
           }
         }
-        __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_8);
         if (__pyx_t_6) {
           PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __Pyx_GIVEREF(__pyx_t_6); __pyx_t_6 = NULL;
@@ -1865,24 +1869,24 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_10linginfo(CYTHON_UNUSED struct __py
         __Pyx_INCREF(__pyx_v_ling_data);
         PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_v_ling_data);
         __Pyx_GIVEREF(__pyx_v_ling_data);
-        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_res, __pyx_t_2); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_res, __pyx_t_2); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         goto __pyx_L7;
       }
       __pyx_L7:;
 
-      /* "pyhspell.pyx":162
+      /* "pyhspell.pyx":167
  *                     word_mean = (<bytes>linginfo_stem2text(stem, j)).decode('iso8859-8')
  *                     res.append(LinginfoWord(word, ling_data))
  *                 j += 1             # <<<<<<<<<<<<<<
  * 
  *         return res
  */
-      __pyx_t_2 = PyNumber_InPlaceAdd(__pyx_v_j, __pyx_int_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 162; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = PyNumber_InPlaceAdd(__pyx_v_j, __pyx_int_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 167; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF_SET(__pyx_v_j, __pyx_t_2);
       __pyx_t_2 = 0;
@@ -1892,7 +1896,7 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_10linginfo(CYTHON_UNUSED struct __py
   }
   __pyx_L3:;
 
-  /* "pyhspell.pyx":164
+  /* "pyhspell.pyx":169
  *                 j += 1
  * 
  *         return res             # <<<<<<<<<<<<<<
@@ -1904,7 +1908,7 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_10linginfo(CYTHON_UNUSED struct __py
   __pyx_r = __pyx_v_res;
   goto __pyx_L0;
 
-  /* "pyhspell.pyx":144
+  /* "pyhspell.pyx":149
  *         return corrections
  * 
  *     def linginfo(self, word):             # <<<<<<<<<<<<<<
@@ -1931,7 +1935,7 @@ static PyObject *__pyx_pf_8HspellPy_6Hspell_10linginfo(CYTHON_UNUSED struct __py
   return __pyx_r;
 }
 
-/* "pyhspell.pyx":166
+/* "pyhspell.pyx":171
  *         return res
  * 
  * cdef int _enum_splits_callback(const char* word, const char *baseword, int preflen, int prefspec):             # <<<<<<<<<<<<<<
@@ -1958,58 +1962,58 @@ static int __pyx_f_8HspellPy__enum_splits_callback(char const *__pyx_v_word, cha
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_enum_splits_callback", 0);
 
-  /* "pyhspell.pyx":169
+  /* "pyhspell.pyx":174
  *     global __enum_splits_res
  * 
  *     word_decoded = (<bytes>word).decode('iso8859-8')             # <<<<<<<<<<<<<<
  *     baseword_decoded = (<bytes>baseword).decode('iso8859-8')
  * 
  */
-  __pyx_t_1 = __Pyx_PyBytes_FromString(__pyx_v_word); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 169; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyBytes_FromString(__pyx_v_word); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 174; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (unlikely(__pyx_t_1 == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%s'", "decode");
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 169; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 174; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_t_2 = __Pyx_decode_bytes(((PyObject*)__pyx_t_1), 0, PY_SSIZE_T_MAX, __pyx_k_iso8859_8, NULL, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 169; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_decode_bytes(((PyObject*)__pyx_t_1), 0, PY_SSIZE_T_MAX, __pyx_k_iso8859_8, NULL, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 174; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_word_decoded = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyhspell.pyx":170
+  /* "pyhspell.pyx":175
  * 
  *     word_decoded = (<bytes>word).decode('iso8859-8')
  *     baseword_decoded = (<bytes>baseword).decode('iso8859-8')             # <<<<<<<<<<<<<<
  * 
  *     __enum_splits_res.append(WordSplitRes(word_decoded, baseword_decoded, preflen, prefspec))
  */
-  __pyx_t_2 = __Pyx_PyBytes_FromString(__pyx_v_baseword); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 170; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyBytes_FromString(__pyx_v_baseword); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 175; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (unlikely(__pyx_t_2 == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%s'", "decode");
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 170; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 175; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_t_1 = __Pyx_decode_bytes(((PyObject*)__pyx_t_2), 0, PY_SSIZE_T_MAX, __pyx_k_iso8859_8, NULL, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 170; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_decode_bytes(((PyObject*)__pyx_t_2), 0, PY_SSIZE_T_MAX, __pyx_k_iso8859_8, NULL, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 175; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_baseword_decoded = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "pyhspell.pyx":172
+  /* "pyhspell.pyx":177
  *     baseword_decoded = (<bytes>baseword).decode('iso8859-8')
  * 
  *     __enum_splits_res.append(WordSplitRes(word_decoded, baseword_decoded, preflen, prefspec))             # <<<<<<<<<<<<<<
  * 
  *     return 0
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_enum_splits_res); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 172; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_enum_splits_res); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_WordSplitRes); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 172; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_WordSplitRes); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_preflen); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 172; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_preflen); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_prefspec); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 172; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_prefspec); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = NULL;
   __pyx_t_7 = 0;
@@ -2023,7 +2027,7 @@ static int __pyx_f_8HspellPy__enum_splits_callback(char const *__pyx_v_word, cha
       __pyx_t_7 = 1;
     }
   }
-  __pyx_t_8 = PyTuple_New(4+__pyx_t_7); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 172; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_8 = PyTuple_New(4+__pyx_t_7); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_8);
   if (__pyx_t_6) {
     PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __Pyx_GIVEREF(__pyx_t_6); __pyx_t_6 = NULL;
@@ -2040,15 +2044,15 @@ static int __pyx_f_8HspellPy__enum_splits_callback(char const *__pyx_v_word, cha
   __Pyx_GIVEREF(__pyx_t_5);
   __pyx_t_4 = 0;
   __pyx_t_5 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 172; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_9 = __Pyx_PyObject_Append(__pyx_t_1, __pyx_t_2); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 172; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_9 = __Pyx_PyObject_Append(__pyx_t_1, __pyx_t_2); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyhspell.pyx":174
+  /* "pyhspell.pyx":179
  *     __enum_splits_res.append(WordSplitRes(word_decoded, baseword_decoded, preflen, prefspec))
  * 
  *     return 0             # <<<<<<<<<<<<<<
@@ -2058,7 +2062,7 @@ static int __pyx_f_8HspellPy__enum_splits_callback(char const *__pyx_v_word, cha
   __pyx_r = 0;
   goto __pyx_L0;
 
-  /* "pyhspell.pyx":166
+  /* "pyhspell.pyx":171
  *         return res
  * 
  * cdef int _enum_splits_callback(const char* word, const char *baseword, int preflen, int prefspec):             # <<<<<<<<<<<<<<
@@ -2084,7 +2088,7 @@ static int __pyx_f_8HspellPy__enum_splits_callback(char const *__pyx_v_word, cha
   return __pyx_r;
 }
 
-/* "pyhspell.pyx":177
+/* "pyhspell.pyx":182
  * 
  * 
  * def dictionary_path(self):             # <<<<<<<<<<<<<<
@@ -2116,7 +2120,7 @@ static PyObject *__pyx_pf_8HspellPy_dictionary_path(CYTHON_UNUSED PyObject *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("dictionary_path", 0);
 
-  /* "pyhspell.pyx":180
+  /* "pyhspell.pyx":185
  *     cdef const char* path
  * 
  *     path = hspell_get_dictionary_path()             # <<<<<<<<<<<<<<
@@ -2125,7 +2129,7 @@ static PyObject *__pyx_pf_8HspellPy_dictionary_path(CYTHON_UNUSED PyObject *__py
  */
   __pyx_v_path = hspell_get_dictionary_path();
 
-  /* "pyhspell.pyx":181
+  /* "pyhspell.pyx":186
  * 
  *     path = hspell_get_dictionary_path()
  *     return <bytes>path             # <<<<<<<<<<<<<<
@@ -2133,14 +2137,14 @@ static PyObject *__pyx_pf_8HspellPy_dictionary_path(CYTHON_UNUSED PyObject *__py
  * def set_dictionary_path(self, dic_path):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBytes_FromString(__pyx_v_path); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyBytes_FromString(__pyx_v_path); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 186; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject*)__pyx_t_1));
   __pyx_r = __pyx_t_1;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyhspell.pyx":177
+  /* "pyhspell.pyx":182
  * 
  * 
  * def dictionary_path(self):             # <<<<<<<<<<<<<<
@@ -2159,7 +2163,7 @@ static PyObject *__pyx_pf_8HspellPy_dictionary_path(CYTHON_UNUSED PyObject *__py
   return __pyx_r;
 }
 
-/* "pyhspell.pyx":183
+/* "pyhspell.pyx":188
  *     return <bytes>path
  * 
  * def set_dictionary_path(self, dic_path):             # <<<<<<<<<<<<<<
@@ -2199,11 +2203,11 @@ static PyObject *__pyx_pw_8HspellPy_3set_dictionary_path(PyObject *__pyx_self, P
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_dic_path)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("set_dictionary_path", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("set_dictionary_path", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 188; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "set_dictionary_path") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "set_dictionary_path") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 188; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2216,7 +2220,7 @@ static PyObject *__pyx_pw_8HspellPy_3set_dictionary_path(PyObject *__pyx_self, P
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("set_dictionary_path", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("set_dictionary_path", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 188; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("HspellPy.set_dictionary_path", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2241,29 +2245,29 @@ static PyObject *__pyx_pf_8HspellPy_2set_dictionary_path(CYTHON_UNUSED PyObject 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("set_dictionary_path", 0);
 
-  /* "pyhspell.pyx":186
+  /* "pyhspell.pyx":191
  *     cdef char* path
  * 
  *     py_byte_string  = dic_path.encode('iso8859-8')             # <<<<<<<<<<<<<<
  *     hspell_set_dictionary_path(py_byte_string)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_dic_path, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 186; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_dic_path, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 191; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 186; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 191; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_py_byte_string = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyhspell.pyx":187
+  /* "pyhspell.pyx":192
  * 
  *     py_byte_string  = dic_path.encode('iso8859-8')
  *     hspell_set_dictionary_path(py_byte_string)             # <<<<<<<<<<<<<<
  */
-  __pyx_t_3 = __Pyx_PyObject_AsString(__pyx_v_py_byte_string); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 187; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_AsString(__pyx_v_py_byte_string); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 192; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   hspell_set_dictionary_path(__pyx_t_3);
 
-  /* "pyhspell.pyx":183
+  /* "pyhspell.pyx":188
  *     return <bytes>path
  * 
  * def set_dictionary_path(self, dic_path):             # <<<<<<<<<<<<<<
@@ -2451,8 +2455,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_Exception = __Pyx_GetBuiltinName(__pyx_n_s_Exception); if (!__pyx_builtin_Exception) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 48; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 137; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_Exception = __Pyx_GetBuiltinName(__pyx_n_s_Exception); if (!__pyx_builtin_Exception) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 53; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 142; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -2462,94 +2466,94 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "pyhspell.pyx":48
+  /* "pyhspell.pyx":53
  *         init_err = hspell_init(&self.hspell_dict, flags)
  *         if init_err == -1:
  *             raise Exception('the dictionary files could not be read.')             # <<<<<<<<<<<<<<
  *         elif init_err < 0:
  *             raise Exception('Error init hspell %i' % init_err)
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_the_dictionary_files_could_not_b); if (unlikely(!__pyx_tuple_)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 48; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_the_dictionary_files_could_not_b); if (unlikely(!__pyx_tuple_)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 53; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "pyhspell.pyx":87
+  /* "pyhspell.pyx":92
  * 
  *         #note: niqqud  characters, geresh or gershayim, must be removed from the word prior
  *         py_byte_string  = word.encode('iso8859-8')             # <<<<<<<<<<<<<<
  *         word_to_check = py_byte_string
  * 
  */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_s_iso8859_8); if (unlikely(!__pyx_tuple__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 87; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_s_iso8859_8); if (unlikely(!__pyx_tuple__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 92; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "pyhspell.pyx":110
+  /* "pyhspell.pyx":115
  *         cdef int err_res
  * 
  *         py_byte_string  = word.encode('iso8859-8')             # <<<<<<<<<<<<<<
  * 
  *         err_res = hspell_enum_splits(self.hspell_dict, py_byte_string, _enum_splits_callback)
  */
-  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_iso8859_8); if (unlikely(!__pyx_tuple__3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 110; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_iso8859_8); if (unlikely(!__pyx_tuple__3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 115; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "pyhspell.pyx":133
+  /* "pyhspell.pyx":138
  * 
  *         corlist_init (&cl)
  *         py_byte_string  = word.encode('iso8859-8')             # <<<<<<<<<<<<<<
  *         corrections = []
  *         hspell_trycorrect(self.hspell_dict, py_byte_string, &cl)
  */
-  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_s_iso8859_8); if (unlikely(!__pyx_tuple__4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 133; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_s_iso8859_8); if (unlikely(!__pyx_tuple__4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 138; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "pyhspell.pyx":150
+  /* "pyhspell.pyx":155
  *         cdef char buf[80]
  * 
  *         py_byte_string  = word.encode('iso8859-8')             # <<<<<<<<<<<<<<
  *         found = linginfo_lookup(py_byte_string, &desc, &stem)
  * 
  */
-  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_kp_s_iso8859_8); if (unlikely(!__pyx_tuple__5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_kp_s_iso8859_8); if (unlikely(!__pyx_tuple__5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
-  /* "pyhspell.pyx":186
+  /* "pyhspell.pyx":191
  *     cdef char* path
  * 
  *     py_byte_string  = dic_path.encode('iso8859-8')             # <<<<<<<<<<<<<<
  *     hspell_set_dictionary_path(py_byte_string)
  */
-  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_s_iso8859_8); if (unlikely(!__pyx_tuple__6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 186; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_s_iso8859_8); if (unlikely(!__pyx_tuple__6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 191; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "pyhspell.pyx":177
+  /* "pyhspell.pyx":182
  * 
  * 
  * def dictionary_path(self):             # <<<<<<<<<<<<<<
  *     cdef const char* path
  * 
  */
-  __pyx_tuple__7 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_path); if (unlikely(!__pyx_tuple__7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__7 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_path); if (unlikely(!__pyx_tuple__7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 182; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
-  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_eran_PycharmProjects_hewik, __pyx_n_s_dictionary_path, 177, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_eran_PycharmProjects_hewik, __pyx_n_s_dictionary_path, 182, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 182; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "pyhspell.pyx":183
+  /* "pyhspell.pyx":188
  *     return <bytes>path
  * 
  * def set_dictionary_path(self, dic_path):             # <<<<<<<<<<<<<<
  *     cdef char* path
  * 
  */
-  __pyx_tuple__9 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_dic_path, __pyx_n_s_path, __pyx_n_s_py_byte_string); if (unlikely(!__pyx_tuple__9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__9 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_dic_path, __pyx_n_s_path, __pyx_n_s_py_byte_string); if (unlikely(!__pyx_tuple__9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 188; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
-  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_eran_PycharmProjects_hewik, __pyx_n_s_set_dictionary_path, 183, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_eran_PycharmProjects_hewik, __pyx_n_s_set_dictionary_path, 188, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 188; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2657,6 +2661,16 @@ PyMODINIT_FUNC PyInit_HspellPy(void)
   __pyx_vtable_8HspellPy_Hspell._try_correct = (PyObject *(*)(struct __pyx_obj_8HspellPy_Hspell *, PyObject *))__pyx_f_8HspellPy_6Hspell__try_correct;
   if (PyType_Ready(&__pyx_type_8HspellPy_Hspell) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 34; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8HspellPy_Hspell.tp_print = 0;
+  #if CYTHON_COMPILING_IN_CPYTHON
+  {
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_8HspellPy_Hspell, "__init__"); if (unlikely(!wrapper)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 34; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (Py_TYPE(wrapper) == &PyWrapperDescr_Type) {
+      __pyx_wrapperbase_8HspellPy_6Hspell___init__ = *((PyWrapperDescrObject *)wrapper)->d_base;
+      __pyx_wrapperbase_8HspellPy_6Hspell___init__.doc = __pyx_doc_8HspellPy_6Hspell___init__;
+      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_8HspellPy_6Hspell___init__;
+    }
+  }
+  #endif
   #if CYTHON_COMPILING_IN_CPYTHON
   {
     PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_8HspellPy_Hspell, "__contains__"); if (unlikely(!wrapper)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 34; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -2808,28 +2822,28 @@ PyMODINIT_FUNC PyInit_HspellPy(void)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_LinginfoWord, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 33; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyhspell.pyx":177
+  /* "pyhspell.pyx":182
  * 
  * 
  * def dictionary_path(self):             # <<<<<<<<<<<<<<
  *     cdef const char* path
  * 
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_8HspellPy_1dictionary_path, NULL, __pyx_n_s_HspellPy); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_8HspellPy_1dictionary_path, NULL, __pyx_n_s_HspellPy); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 182; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_dictionary_path, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_dictionary_path, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 182; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyhspell.pyx":183
+  /* "pyhspell.pyx":188
  *     return <bytes>path
  * 
  * def set_dictionary_path(self, dic_path):             # <<<<<<<<<<<<<<
  *     cdef char* path
  * 
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_8HspellPy_3set_dictionary_path, NULL, __pyx_n_s_HspellPy); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_8HspellPy_3set_dictionary_path, NULL, __pyx_n_s_HspellPy); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 188; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_set_dictionary_path, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_set_dictionary_path, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 188; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "pyhspell.pyx":1

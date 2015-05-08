@@ -28,8 +28,9 @@ pip install HspellPy
 # Usage
 Usage example (python 3)
 ```python
+>>> from __future__ import unicode_literals
 >>> import HspellPy
->>> speller = HspellPy.Hspell()
+>>> speller = HspellPy.Hspell(linguistics=True)
  
 >>> speller.check_word('בית')       # check whether word exist in dictionary
 True

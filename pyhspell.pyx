@@ -35,6 +35,11 @@ cdef class Hspell(object):
     cdef dict_radix* hspell_dict
 
     def __init__(self, allow_he_sheela=False, linguistics=False):
+        """
+        Initializes a new spell checker object
+        :param allow_he_sheela:  allows he_sheela
+        :param linguistics: allow linguistic data
+        """
         cdef int flags
         cdef int init_err
         flags = HSPELL_OPT_DEFAULT
