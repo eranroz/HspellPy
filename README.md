@@ -15,7 +15,7 @@ Hspell was written by Nadav Har'El and Dan Kenigsberg:
 # Install
 1. Get Hspell: 
   1. Download Hspell: http://hspell.ivrix.org.il/
-  2. Configure: ./configure --enable-linginfo
+  2. Configure: ./configure --enable-shared --enable-linginfo
   3. Build: make
   4. Install: make install
 2. python setup.py install
@@ -24,6 +24,15 @@ You can install HspellPy using pip:
 ```
 pip install HspellPy
 ```
+
+If you fail to import HspellPy with the following error:
+```python
+>>> import HspellPy
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: libhspell.so.0: cannot open shared object file: No such file or directory
+```
+You should validate libhspell.so.0 is accessible in LD_LIBRARY_PATH.
 
 # Usage
 Usage example (python 3)

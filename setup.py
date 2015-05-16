@@ -7,23 +7,24 @@ try:
 except ImportError:
     use_cython = False
 
+
 cmdclass = {}
 if use_cython:
     ext_modules = [Extension("HspellPy",
                          ["pyhspell.pyx"],
                          language='c',
-                         library_dirs = ['/usr/local/lib'],
+                         library_dirs=['/usr/local/lib'],
                          include_dirs=['/usr/local/include'],
-                         extra_objects=['/usr/local/lib/libhspell.a'],
+                         libraries=['hspell'],
                          )]
     cmdclass = {'build_ext': build_ext}
 else:
     ext_modules = [Extension("HspellPy",
                          ["pyhspell.c"],
                          language='c',
-                         library_dirs = ['/usr/local/lib'],
+                         library_dirs=['/usr/local/lib'],
                          include_dirs=['/usr/local/include'],
-                         extra_objects=['/usr/local/lib/libhspell.a'],
+                         libraries=['hspell'],
                          )]
 
 setup(name='HspellPy',
