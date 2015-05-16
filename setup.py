@@ -33,5 +33,5 @@ setup(name='HspellPy',
       author_email='eranroz@cs.huji.ac.il',
       url='https://github.com/eranroz/HspellPy',
       description='Python wrapper for Hspell',
-      version='0.1'
+      version='0.1.1'
       )
