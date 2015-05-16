@@ -147,6 +147,11 @@ cdef class Hspell(object):
         return corrections
 
     def linginfo(self, word):
+        """
+        Get linguistic information for a word
+        :param word: word to get linguistic information for
+        :return: a list of all possible linguistic information for a word
+        """
         cdef int err_res
         cdef char *desc
         cdef char *stem
@@ -179,13 +184,20 @@ cdef int _enum_splits_callback(const char* word, const char *baseword, int prefl
     return 0
 
 
-def dictionary_path(self):
+def dictionary_path():
+    """
+    Path for Hebrew dictionary
+    """
     cdef const char* path
 
     path = hspell_get_dictionary_path()
     return <bytes>path
 
-def set_dictionary_path(self, dic_path):
+def set_dictionary_path(dic_path):
+    """
+    Sets ath for Hebrew dictionary
+    :param dic_path: new path for dictionary
+    """
     cdef char* path
 
     py_byte_string  = dic_path.encode('iso8859-8')
