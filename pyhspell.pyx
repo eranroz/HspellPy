@@ -33,9 +33,8 @@ WordSplitRes = namedtuple('WordEnumSplit', ['word', 'baseword', 'preflen', 'pref
 LinginfoWord = namedtuple('LinginfoWord', ['word', 'linginfo'])
 cdef class Hspell(object):
     cdef dict_radix* hspell_dict
-    cdef bint _debug
 
-    def __init__(self, allow_he_sheela=False, linguistics=False, debug=False):
+    def __init__(self, allow_he_sheela=False, linguistics=False):
         """
         Initializes a new spell checker object
         :param allow_he_sheela:  allows he_sheela
@@ -54,8 +53,6 @@ cdef class Hspell(object):
             raise Exception('the dictionary files could not be read.')
         elif init_err < 0:
             raise Exception('Error init hspell %i' % init_err)
-
-        self._debug = debug
 
     cdef __del__(self):
         hspell_uninit(self.hspell_dict)
@@ -141,9 +138,6 @@ cdef class Hspell(object):
         py_byte_string  = word.encode('iso8859-8')
         corrections = []
         hspell_trycorrect(self.hspell_dict, py_byte_string, &cl)
-
-        if self._debug:
-            print('%i' % corlist_n(&cl))
 
         for i in range(corlist_n(&cl)):
             correct = <bytes>corlist_str(&cl, i).decode('iso8859-8')
