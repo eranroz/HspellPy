@@ -143,7 +143,7 @@ cdef class Hspell(object):
         hspell_trycorrect(self.hspell_dict, py_byte_string, &cl)
 
         if self._debug:
-            print('%i'%corlist_n(&cl))
+            print('%i' % corlist_n(&cl))
 
         for i in range(corlist_n(&cl)):
             correct = <bytes>corlist_str(&cl, i).decode('iso8859-8')
