@@ -27,6 +27,7 @@ cdef extern from "linginfo.h":
     char* linginfo_stem2text(const char *stem, int i)
 
 __enum_splits_res = []
+__enum_splits_basewords_res = []
 
 from collections import namedtuple
 WordSplitRes = namedtuple('WordEnumSplit', ['word', 'baseword', 'preflen', 'prefspec'])
@@ -146,32 +147,47 @@ cdef class Hspell(object):
 
         return corrections
 
-    def linginfo(self, word):
+    def linginfo(self, word, split_prefix=True):
         """
         Get linguistic information for a word
         :param word: word to get linguistic information for
+        :split_prefix: include linguistic information of all legal splits of a word
         :return: a list of all possible linguistic information for a word
         """
+        global __enum_splits_basewords_res
         cdef int err_res
         cdef char *desc
         cdef char *stem
         cdef char buf[80]
-
         py_byte_string  = word.encode('iso8859-8')
-        found = linginfo_lookup(py_byte_string, &desc, &stem)
+        if split_prefix:
+            err_res = hspell_enum_splits(self.hspell_dict, py_byte_string, _enum_splits_basewords)
+            linginfowords = __enum_splits_basewords_res
+            __enum_splits_basewords_res = []
+
+        else:
+            linginfowords = [py_byte_string]
 
         res = []
-        if found:
-            j = 0
-            while True:
-                if not linginfo_desc2text(buf, desc, j): break
-                if linginfo_desc2ps(desc, j):
-                    ling_data = (<bytes>buf).decode('iso8859-8')
-                    word_mean = (<bytes>linginfo_stem2text(stem, j)).decode('iso8859-8')
-                    res.append(LinginfoWord(word, ling_data))
-                j += 1
+        for bytesword in linginfowords:
+            found = linginfo_lookup(bytesword, &desc, &stem)
+            if found:
+                j = 0
+                while linginfo_desc2text(buf, desc, j):
+                    if linginfo_desc2ps(desc, j):
+                        ling_data = (<bytes>buf).decode('iso8859-8')
+                        word_mean = (<bytes>linginfo_stem2text(stem, j)).decode('iso8859-8')
+                        res.append(LinginfoWord(bytesword.decode('iso8859-8'), ling_data))
+                    j += 1
 
         return res
+
+cdef int _enum_splits_basewords(const char* word, const char *baseword, int preflen, int prefspec):
+    global __enum_splits_basewords_res
+    baseword_bytes = (<bytes>baseword)
+    __enum_splits_basewords_res.append(baseword_bytes)
+
+    return 0
 
 cdef int _enum_splits_callback(const char* word, const char *baseword, int preflen, int prefspec):
     global __enum_splits_res
